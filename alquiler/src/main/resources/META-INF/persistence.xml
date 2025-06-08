@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <persistence-unit name="BD2_ApellidoPU" transaction-type="RESOURCE_LOCAL">
+
+        <!-- Proveedor JPA -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Entidades gestionadas -->
+        <class>com.cibertec.model.Cliente</class>
+        <class>com.cibertec.model.Pelicula</class>
+        <class>com.cibertec.model.Alquiler</class>
+        <class>com.cibertec.model.DetalleAlquiler</class>
+        <class>com.cibertec.model.DetalleAlquilerId</class>
+
+        <!-- Configuración de conexión -->
+        <properties>
+            <!-- Cambia estos datos a tu base de datos -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/BD2_RODRIGUEZ"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="180204"/>
+
+            <!-- Dialecto de Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            
+            <!-- Mostrar SQL por consola -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+
+
+            <!-- Crear tablas automáticamente -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
