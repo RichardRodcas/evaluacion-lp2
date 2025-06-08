@@ -1,5 +1,17 @@
+# Ignorar archivos de compilación
 target/
-*.log
-.mvn/
+*.jar
+*.war
+*.class
+
+# Archivos de configuración del IDE
 .idea/
 .vscode/
+*.iml
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Configuración específica de Maven
+.mvn/
