@@ -1,2 +1,2 @@
-# LPII-T1-repository
-Repositorio del 1er examen del curso LPII
+# LPII-T2-repository
+Repositorio del 2do examen del curso LPII
