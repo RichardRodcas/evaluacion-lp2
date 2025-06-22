@@ -46,13 +46,15 @@ Este proyecto es una aplicación web construida con Java y Spring Boot que simul
 
 ## Estructura del Proyecto
 
-. controller/: lógica de rutas y controladores
-. model/: entidades de negocio (Alquiler, Cliente, Película…)
-. repository/: interfaces JPA para acceso a base de datos
-. resources/: vistas Thymeleaf con diseño limpio y layout unificado
-. .gitignore: configurado para evitar archivos de sistema
+- controller/: lógica de rutas y controladores
+- model/: entidades de negocio (Alquiler, Cliente, Película…)
+- repository/: interfaces JPA para acceso a base de datos
+- resources/: vistas Thymeleaf con diseño limpio y layout unificado
+- .gitignore: configurado para evitar archivos de sistema
 
 ## Desarroyo
 Creado por Richard Rodriguez Casanova, estudiante de la carrera Computación e Informática - Cibertec
+
+_Se incluye un PDF a manera de apoyo visual_
 
 
