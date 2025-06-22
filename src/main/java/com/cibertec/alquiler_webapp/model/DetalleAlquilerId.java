@@ -11,7 +11,7 @@ public class DetalleAlquilerId implements Serializable {
     private Integer idAlquiler;
     private Integer idPelicula;
 
-    // Constructor vacío obligatorio
+    
     public DetalleAlquilerId() {}
 
     public DetalleAlquilerId(Integer idAlquiler, Integer idPelicula) {
@@ -19,7 +19,7 @@ public class DetalleAlquilerId implements Serializable {
         this.idPelicula = idPelicula;
     }
 
-    // Getters y setters
+   
     public Integer getIdAlquiler() {
         return idAlquiler;
     }
@@ -36,7 +36,7 @@ public class DetalleAlquilerId implements Serializable {
         this.idPelicula = idPelicula;
     }
 
-    // equals() y hashCode() requeridos
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

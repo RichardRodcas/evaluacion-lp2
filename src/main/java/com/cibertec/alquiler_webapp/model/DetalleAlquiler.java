@@ -30,7 +30,7 @@ public class DetalleAlquiler {
     @NotNull
     private Integer cantidad;
 
-    // 🔢 Subtotal automático
+    // Subtotal
     public BigDecimal getSubtotal() {
         if (pelicula == null || pelicula.getPrecio() == null || cantidad == null) {
             return BigDecimal.ZERO;

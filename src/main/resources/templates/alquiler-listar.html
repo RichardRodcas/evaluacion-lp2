@@ -31,7 +31,11 @@
             <tr th:each="alquiler : ${alquileres}">
                 <td th:text="${alquiler.idAlquiler}">1</td>
                 <td th:text="${alquiler.cliente?.nombre}">Cliente</td>
-                <td th:text="${alquiler.pelicula?.titulo}">Película</td>
+                <td>
+                    <ul class="mb-0 ps-3" th:if="${alquiler.detalles}">
+                        <li th:each="detalle : ${alquiler.detalles}" th:text="${detalle.pelicula.titulo}">Película</li>
+                    </ul>
+                </td>
                 <td th:text="${alquiler.fechaFormateada}">Fecha</td>
                 <td>
                     <span th:text="${alquiler.estado}" class="badge bg-info text-dark"></span>
@@ -42,6 +46,13 @@
                     <a th:href="@{/alquiler/eliminar/{id}(id=${alquiler.idAlquiler})}"
                        onclick="return confirm('¿Deseas eliminar este alquiler?')"
                        class="btn btn-danger btn-sm" title="Eliminar">🗑️</a>
+                    <a th:href="@{/alquiler/devolver/{id}(id=${alquiler.idAlquiler})}" 
+                        class="btn btn-success btn-sm"
+                        th:if="${alquiler.estado.name() == 'ACTIVO' or alquiler.estado.name() == 'RETRASADO'}"
+                        onclick="return confirm('¿Marcar este alquiler como DEVUELTO?')">
+                        ✅ Devolver
+                    </a>
+                    
                 </td>
             </tr>
             <tr th:if="${#lists.isEmpty(alquileres)}">
@@ -51,5 +62,8 @@
         </table>
     </div>
 </div>
+  <footer class="text-center text-muted mt-5 mb-3">
+        <small>© 2025 Block Buster Fake. Todos los derechos reservados por mi :v.</small>
+    </footer>
 </body>
 </html>

@@ -7,9 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "alquileres")
+@Getter
+@Setter
 public class Alquiler {
 
     @Id
@@ -19,6 +23,9 @@ public class Alquiler {
 
     @Column(name = "fecha", nullable = false)
     private LocalDate fecha;
+    @Column(name = "total")
+    private BigDecimal total = BigDecimal.ZERO;
+
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id_cliente")
@@ -34,7 +41,7 @@ public class Alquiler {
     @OneToMany(mappedBy = "alquiler", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DetalleAlquiler> detalles = new ArrayList<>();
 
-    // 🧮 Total dinámico
+    /*  Total dinámico
     public BigDecimal getTotal() {
         if (detalles == null || detalles.isEmpty()) {
             return BigDecimal.ZERO;
@@ -42,7 +49,7 @@ public class Alquiler {
         return detalles.stream()
                 .map(DetalleAlquiler::getSubtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
+    }*/
 
     public String getFechaFormateada() {
         return fecha != null ? fecha.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) : "—";
@@ -95,6 +102,13 @@ public class Alquiler {
     }
 
     public void setDetalles(List<DetalleAlquiler> detalles) {
-        this.detalles = detalles;
+    this.detalles = detalles;
+    if (detalles != null) {
+        for (DetalleAlquiler detalle : detalles) {
+            detalle.setAlquiler(this); 
+        }
     }
+}
+    
+
 }
